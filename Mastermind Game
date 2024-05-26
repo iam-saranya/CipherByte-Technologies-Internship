@@ -1,0 +1,61 @@
+import random
+
+def get_feedback(secret, guess):
+    feedback = {'correct_position': 0, 'correct_digit': 0}
+    secret_digits = list(secret)
+    guess_digits = list(guess)
+    
+    # Check for correct position
+    for i in range(len(secret_digits)):
+        if guess_digits[i] == secret_digits[i]:
+            feedback['correct_position'] += 1
+            secret_digits[i] = guess_digits[i] = None
+    
+    # Check for correct digits in wrong positions
+    for i in range(len(secret_digits)):
+        if guess_digits[i] is not None and guess_digits[i] in secret_digits:
+            feedback['correct_digit'] += 1
+            secret_digits[secret_digits.index(guess_digits[i])] = None
+    
+    return feedback
+
+def player_guess(secret):
+    attempts = 0
+    while True:
+        guess = input("Enter your guess: ")
+        attempts += 1
+        if guess == secret:
+            print(f"Correct! You've guessed the number in {attempts} attempts.")
+            return attempts
+        else:
+            feedback = get_feedback(secret, guess)
+            print(f"Correct digits in correct positions: {feedback['correct_position']}")
+            print(f"Correct digits in incorrect positions: {feedback['correct_digit']}")
+
+def main():
+    # Player 1 sets the secret number
+    secret1 = input("Player 1, set your secret number: ")
+    print("\n" * 100)  # Clear the screen
+    
+    # Player 2 guesses
+    print("Player 2, it's your turn to guess.")
+    attempts2 = player_guess(secret1)
+    
+    # Player 2 sets the secret number
+    secret2 = input("Player 2, set your secret number: ")
+    print("\n" * 100)  # Clear the screen
+    
+    # Player 1 guesses
+    print("Player 1, it's your turn to guess.")
+    attempts1 = player_guess(secret2)
+    
+    # Determine the winner
+    if attempts1 < attempts2:
+        print("Player 1 wins and is crowned Mastermind!")
+    elif attempts1 > attempts2:
+        print("Player 2 wins and is crowned Mastermind!")
+    else:
+        print("It's a tie!")
+
+if __name__ == "__main__":
+    main()
