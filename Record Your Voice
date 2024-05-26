@@ -18,3 +18,12 @@ output_filename = 'recorded_audio.wav'
 write(output_filename, sample_rate, recorded_audio)
 
 print(f"Audio saved to {output_filename}")
+
+
+#Explanation:
+#Import the necessary modules: We import sounddevice for recording audio and scipy.io.wavfile for saving the audio as a WAV file.
+#Set the duration and sample rate: The duration is set to 10 seconds, and the sample_rate is set to 44100 Hz, which is CD quality.
+#Record the audio: We use sd.rec() to start recording. The parameters specify the number of frames (duration * sample_rate), the sample rate, the number of channels (2 for stereo), and the data type (int16).
+#Wait for the recording to finish: sd.wait() ensures that the program waits until the recording is complete before proceeding.
+#Save the audio: write() from scipy.io.wavfile saves the recorded audio to a file named recorded_audio.wav.
+#This program will record audio for 10 seconds and save it to a file named recorded_audio.wav in the current directory. You can adjust the duration and sample_rate variables as needed.
