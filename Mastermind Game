@@ -59,3 +59,22 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#How the code works:
+#get_feedback function:
+
+#Compares the secret number with the guess and provides feedback on how many digits are correct and in the correct position (correct_position).
+#Also provides how many digits are correct but in the wrong position (correct_digit).
+#player_guess function:
+
+#Takes the secret number as input and continues to prompt the player for guesses until the correct number is guessed.
+#Provides feedback after each guess and counts the number of attempts.
+#main function:
+
+#Manages the flow of the game.
+#Allows Player 1 to set a secret number and Player 2 to guess it, then swaps roles.
+#Compares the number of attempts made by each player to determine the winner.
+#Instructions:
+#To run the game, copy the code into a Python script and execute it.
+#Follow the prompts to set and guess the numbers.
+#This implementation ensures fairness and proper feedback to each player's guesses, making for an engaging game.
