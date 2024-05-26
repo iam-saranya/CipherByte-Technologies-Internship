@@ -32,3 +32,10 @@ def play_game():
 
 if __name__ == "__main__":
     play_game()
+
+# How the code works:
+# get_user_choice(): Prompts the user to enter their choice and ensures it is a valid input (either "rock", "paper", or "scissor").
+# get_computer_choice(): Randomly selects a choice for the computer.
+# determine_winner(): Compares the user's choice and the computer's choice to determine the winner based on the game rules.
+# play_game(): Orchestrates the game by calling the other functions, displaying the choices, and printing the result.
+# To run the game, simply execute the script, and it will guide you through the process of playing Rock, Paper, Scissors against the computer
